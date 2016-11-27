@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="RolePrivilege">
+	<resultMap id="roleResultMap"
+		type="com.ocean.lmh.base.model.entity.system.RolePrivilegeValue">
+		<id column="role_id" property="roleId" jdbcType="INTEGER" />
+		<result column="privilege_id" property="privilegeId" jdbcType="INTEGER" />
+		<result column="op_id" property="operId" jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		role_id, privilege_id op_id
+  	</sql>
+
+	<!-- 根据id删除一条角色权限关联的记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.util.Map">
+		delete from system_role_privilege
+		where 1=1
+		<if test="roleid != null"> and role_id = #{roleid}</if>
+		<if test="privilegeid != null"> and privilege_id = #{privilegeid}</if>
+		<if test="opId != null"> and op_id=#{opId}</if>
+	</delete>
+
+	<!-- 插入一条角色权限关联的记录 -->
+	<insert id="insertRolePrivilege" parameterType="com.ocean.lmh.base.model.entity.system.RolePrivilegeValue">
+		insert into system_role_privilege (role_id, privilege_id, op_id)
+		values (#{roleId},#{privilegeId},#{operId})
+  </insert>
+
+</mapper>

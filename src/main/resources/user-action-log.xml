@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actons>
+	<!-- 
+		
+	<action url="必有" action-code="必有" desc="可选">
+		<param 
+			name="必有" 
+			column="可选，保存于具体的字段中"
+			maxLength="可选，默认0"/> 
+		 -> <param> 可选
+		
+		
+		column 字符串字段(50) 	  s_col_1	s_col_2	s_col_3	s_col_4
+				整型字段(11)      i_col_1	i_col_2	i_col_3
+				时间字段	   		  d_col_1	d_col_2	d_col_3
+				
+	</action>
+	 -->
+	 
+	 <action url="/system/login_index.do" action-code="SL01S01" desc="管理员登录界面">
+	</action>
+	
+	<action url="/system/login.do" action-code="SL02S01" desc="管理员登录">
+		<param name="userid" column="s_col_1"/>
+	</action>
+	
+	<action url="/system/logout.do" action-code="SL03S01" desc="管理员登出">
+	</action>
+	
+	
+	<action url="/system/menu/list.do" action-code="SM01S01" desc="查看菜单">
+		<param name="keyword" column="s_col_1"/>
+		<param name="current" column="i_col_1"/>
+		<param name="pageSize" column="i_col_2"/>
+	</action>
+	
+	<action url="/system/menu/addTree.do" method="post" action-code="SM01S02" desc="增加菜单树">
+		<param name="name"/>
+		<param name="uri"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/menu/addMenu.do" action-code="SM01S03" desc="增加菜单">
+		<param name="name"/>
+		<param name="uri"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/menu/remove.do" action-code="SM01S04" desc="删除菜单">
+		<param name="id"/>
+	</action>
+	
+	<action url="/system/menu/move.do" action-code="SM01S05" desc="移动菜单">
+		<param name="id"/>
+		<param name="pid"/>
+		<param name="prevId"/>
+		<param name="nextId"/>
+	</action>
+	
+	<action url="/system/menu/get.do" action-code="SM01S06" desc="获取菜单信息">
+		<param name="id"/>
+	</action>
+	
+	<action url="/system/menu/updateMenu.do" action-code="SM01S07" desc="更新菜单信息">
+		<param name="id"/>
+		<param name="name"/>
+		<param name="uri"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/menu/removeTree.do" action-code="SM01S08" desc="移除菜单树">
+		<param name="id"/>
+	</action>
+	
+	
+	<action url="/system/param/list.do" action-code="SP01S01" desc="查询参数">
+		<param name="name"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/param/add.do" method="post" action-code="SP01S02" desc="新增参数">
+		<param name="name"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/param/update.do" method="post" action-code="SP01S03" desc="修改参数">
+		<param name="id"/>
+		<param name="name"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/param/remove.do" method="get" action-code="SP01S04" desc="删除参数">
+		<param name="id"/>
+	</action>
+	
+	
+	<action url="/system/privilege/list.do" action-code="SP02S01" desc="查询权限">
+		<param name="group"/>
+		<param name="name"/>
+	</action>
+	
+	<action url="/system/privilege/add.do"  method="post" action-code="SP02S02" desc="新增权限">
+		<param name="name"/>
+		<param name="group"/>
+		<param name="uri"/>
+	</action>
+	
+	<action url="/system/privilege/remove.do"  method="get" action-code="SP02S03" desc="删除权限">
+		<param name="id"/>
+	</action>
+	
+	<action url="/system/privilege/update.do"  method="post" action-code="SP02S04" desc="修改权限">
+		<param name="id"/>
+		<param name="name"/>
+		<param name="group"/>
+		<param name="uri"/>
+	</action>
+	
+	
+	<action url="/system/role/list.do"  action-code="SR01S01" desc="查询角色">
+		<param name="name"/>
+	</action>
+	
+	<action url="/system/role/add.do" method="post" action-code="SR01S02" desc="新增角色">
+		<param name="name"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/role/update.do" method="post" action-code="SR01S03" desc="修改角色">
+		<param name="id"/>
+		<param name="name"/>
+		<param name="description"/>
+	</action>
+	
+	<action url="/system/role/remove.do" method="get" action-code="SR01S04" desc="删除角色">
+		<param name="id"/>
+	</action>
+	
+	
+	<action url="/system/user/list.do" action-code="SU01S01" desc="查询用户列表">
+		<param name="name"/>
+		<param name="status"/>
+		<param name="userid"/>
+	</action>
+	
+	<action url="/system/user/add.do" method="post" action-code="SU01S02" desc="新增用户">
+		<param name="userid"/>
+		<param name="nickname"/>
+		<param name="city"/>
+		<param name="status"/>
+		<param name="assignedPrivilegeIds"/>
+	</action>
+	
+	<action url="/system/user/update.do" method="post" action-code="SU01S03" desc="修改用户">
+		<param name="id"/>
+		<param name="userid"/>
+		<param name="nickname"/>
+		<param name="city"/>
+		<param name="status"/>
+		<param name="assignedPrivilegeIds"/><!-- tianjp_??? 获取不到 -->
+	</action>
+	
+	<action url="/system/user/remove.do" method="get" action-code="SU01S04" desc="删除用户">
+		<param name="id"/>
+	</action>
+	
+	<action url="/system/user/disable.do" method="get" action-code="SU01S05" desc="禁用用户">
+		<param name="id"/>
+	</action>
+	
+	<action url="/system/user/enable.do" method="get" action-code="SU01S06" desc="启用用户">
+		<param name="id"/>
+	</action>
+	
+	<action url="/system/user/change_password.do" method="post" action-code="SU01S07" desc="修改密码">
+		<param name="id"/>
+	</action>
+	
+	
+</actons>

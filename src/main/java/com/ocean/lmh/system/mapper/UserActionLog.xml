@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="UserActionLog">
+	<resultMap id="userActionLogResultMap" type="com.ocean.lmh.base.model.entity.system.UserActionLogValue">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="oper_id" property="userId" jdbcType="VARCHAR" />
+		<result column="action_code" property="actionCode" jdbcType="VARCHAR" />
+		<result column="operation_desc" property="operationDesc"
+			jdbcType="VARCHAR" />
+		<result column="s_col_1" property="stringColumn1" jdbcType="VARCHAR" />
+		<result column="s_col_2" property="stringColumn2" jdbcType="VARCHAR" />
+		<result column="s_col_3" property="stringColumn3" jdbcType="VARCHAR" />
+		<result column="s_col_4" property="stringColumn4" jdbcType="VARCHAR" />
+		<result column="i_col_1" property="intColumn1" jdbcType="INTEGER" />
+		<result column="i_col_2" property="intColumn2" jdbcType="INTEGER" />
+		<result column="i_col_3" property="intColumn3" jdbcType="INTEGER" />
+		<result column="d_col_1" property="dateColumn1" jdbcType="TIMESTAMP" />
+		<result column="d_col_2" property="dateColumn2" jdbcType="TIMESTAMP" />
+		<result column="d_col_3" property="dateColumn3" jdbcType="TIMESTAMP" />
+		<result column="input_params" property="inputParams" jdbcType="VARCHAR" />
+		<result column="http_resp_code" property="httpRespCode"
+			jdbcType="VARCHAR" />
+		<result column="http_error_msg" property="httpErrorMsg"
+			jdbcType="VARCHAR" />
+		<result column="third_resp_data" property="thirdRespData"
+			jdbcType="VARCHAR" />
+		<result column="resp_data" property="respData" jdbcType="VARCHAR" />
+		<result column="business_result_code" property="businessResultCode"
+			jdbcType="INTEGER" />
+		<result column="exception_info" property="exceptionInfo"
+			jdbcType="VARCHAR" />
+		<result column="using_time" property="usingTime" jdbcType="INTEGER" />
+		<result column="comment" property="comment" jdbcType="VARCHAR" />
+		<result column="create_time" property="txnDate" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, oper_id, action_code, operation_desc, s_col_1, s_col_2, s_col_3,
+		s_col_4, i_col_1, i_col_2, i_col_3, d_col_1, d_col_2, d_col_3, input_params, 
+		http_resp_code,	http_error_msg, third_resp_data, resp_data, business_result_code,
+		 exception_info, using_time, comment, create_time
+  	</sql>
+  	
+  	<!-- 根据属性id获取一条用户操作日志 -->
+	<select id="selectByPrimaryKey" resultMap="userActionLogResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper_log
+		where id = #{id}
+	</select>
+	
+	<!-- 根据属性id删除一条用户操作日志 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from system_oper_log
+		where id = #{id}
+  	</delete>
+  
+  	<!-- 插入一条用户操作日志 -->
+	<insert id="insertUserActionLog" parameterType="com.ocean.lmh.base.model.entity.system.UserActionLogValue">
+		insert into system_oper_log (oper_id, action_code,
+		operation_desc, s_col_1, s_col_2, s_col_3, s_col_4, i_col_1,
+		i_col_2, i_col_3, d_col_1, d_col_2, d_col_3, input_params,
+		http_resp_code, http_error_msg, third_resp_data,
+		resp_data, business_result_code, exception_info,
+		using_time, comment, create_time
+		)
+		values (#{userId},#{actionCode},#{operationDesc}, #{stringColumn1},
+		 #{stringColumn2},#{stringColumn3}, #{stringColumn4},#{intColumn1},#{intColumn2}, #{intColumn3}, #{dateColumn1},
+		#{dateColumn2}, #{dateColumn3}, #{inputParams},#{httpRespCode}, #{httpErrorMsg},
+		 #{thirdRespData},#{respData}, #{businessResultCode},#{exceptionInfo},
+		#{usingTime}, #{comment}, #{txnDate}
+		)
+  	</insert>
+	
+	<!-- 根据属性id更新一条用户操作日志 -->
+	<update id="updateByPrimaryKey" parameterType="com.ocean.lmh.base.model.entity.system.UserActionLogValue">
+		update system_oper_log
+		set 
+		oper_id = #{userId},
+		action_code = #{actionCode},
+		operation_desc = #{operationDesc},
+		s_col_1 = #{stringColumn1},
+		s_col_2 = #{stringColumn2},
+		s_col_3 = #{stringColumn3},
+		s_col_4 = #{stringColumn4},
+		i_col_1 = #{intColumn1},
+		i_col_2 = #{intColumn2},
+		i_col_3 = #{intColumn3},
+		d_col_1 = #{dateColumn1},
+		d_col_2 = #{dateColumn2},
+		d_col_3 = #{dateColumn3},
+		input_params = #{inputParams},
+		http_resp_code = #{httpRespCode},
+		http_error_msg = #{httpErrorMsg},
+		third_resp_data = #{thirdRespData},
+		resp_data = #{respData},
+		business_result_code = #{businessResultCode},
+		exception_info = #{exceptionInfo},
+		using_time = #{usingTime},
+		comment = #{comment},
+		create_time = #{txnDate}
+		where id = #{id}
+  </update>
+</mapper>

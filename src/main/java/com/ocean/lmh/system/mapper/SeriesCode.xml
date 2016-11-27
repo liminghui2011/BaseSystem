@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SeriesCode">
+	<resultMap id="seriesCodeResultMap" type="com.ocean.lmh.base.model.entity.system.SeriesCodeValue">
+		<id column="code_name" property="codeName" jdbcType="VARCHAR" />
+		<result column="prefix" property="prefix" jdbcType="VARCHAR" />
+		<result column="middle" property="middle" jdbcType="VARCHAR" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="step" property="step" jdbcType="INTEGER" />
+		<result column="code_length" property="codeLength" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		code_name, prefix, middle, code, step, code_length
+  	</sql>
+  	
+  	<!-- 根据主键code_name获取一条序列编号记录 -->
+	<select id="selectByPrimaryKey" resultMap="seriesCodeResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from system_code
+		where code_name = #{codeName} for update
+	</select>
+  	
+  	<!-- 根据主键code_name更新一条序列编号记录 -->
+	<update id="updateByPrimaryKey" parameterType="com.ocean.lmh.base.model.entity.system.SeriesCodeValue">
+		update system_code
+		set prefix = #{prefix},
+		middle = #{middle},
+		code = #{code},
+		step = #{step},
+		code_length = #{codeLength}
+		where code_name = #{codeName}
+  	</update>
+  	
+  	<!-- 统一设置系统序列编号为初始编号 -->
+  	<update id="updateCodeToFirst" parameterType="java.util.Map">
+  		update system_code set code=#{firstCode}
+  	</update>
+</mapper>

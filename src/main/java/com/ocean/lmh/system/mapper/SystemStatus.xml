@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SystemStatus">
+	<resultMap id="systemStatusResultMap" type="com.ocean.lmh.base.model.entity.system.SystemStatusValue">
+		<id column="status_id" property="statusId" jdbcType="INTEGER" />
+		<result column="status_name" property="statusName" jdbcType="VARCHAR" />
+		<result column="status_level" property="statusLevel" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		status_id, status_name, status_level
+  	</sql>
+  
+  	<!-- 获取小于等于指定状态级别的系统状态记录信息 -->
+	<select id="selectByStatusLevel" resultMap="systemStatusResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from system_status
+		where status_level &lt;= #{statusLevel}
+	</select>
+	
+</mapper>

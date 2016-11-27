@@ -1,0 +1,945 @@
+a{
+	vertical-align: middle;
+}
+
+a:LINK{
+	text-decoration: none;
+}
+a:VISITED{
+	text-decoration: none;
+}
+
+a:HOVER{
+	text-decoration: none;
+}
+
+a:ACTIVE{
+	text-decoration: none;
+}
+
+
+/**添加分组	*/
+.lt_add_group{
+	background-image: url("../img/addgroup_before.png");
+	background-repeat: no-repeat;
+	width: 90px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*添加分组         聚焦*/
+.lt_add_group:hover{
+	background-image: url("../img/addgroup_focus.png");
+}
+
+/**批量导入用户	*/
+.lt_add_usercode{
+	background-image: url("../img/addid_before.png");
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*批量导入用户         聚焦*/
+.lt_add_usercode:hover{
+	background-image: url("../img/addid_focus.png");
+}
+
+/**添加用户ID	*/
+.lt_add_userid{
+	background-image: url("../img/addid_before_bak.png");
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加用户ID     聚焦*/
+.lt_add_userid:hover{
+	background-image: url("../img/addid_focus_bak.png");
+}
+
+/**添加管理员账号	*/
+.lt_add_oper{
+	display:inline-block;
+	background-image: url("../img/addoper_before.png");
+	background-repeat: no-repeat;
+	width: 130px;
+	height: 26px;
+	cursor: hand;
+	border: 0px;
+}
+
+/**添加管理员账号     聚焦*/
+.lt_add_oper:hover{
+	background-image: url("../img/addoper_focus.png");
+}
+
+/**添加角色	*/
+.lt_add_role{
+	display:inline-block;
+	background-image: url("../img/addrole.jpg");
+	background-repeat: no-repeat;
+	width: 130px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加角色     聚焦*/
+.lt_add_role:hover{
+	background-image: url("../img/addrole_focus.jpg");
+}
+
+/**审核不通过	*/
+.lt_audit_nopass{
+	display:inline-block;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+	background-image: url("../img/audit_nopass.png");
+	background-repeat: no-repeat;
+}
+
+/**审核不通过     聚焦*/
+.lt_audit_nopass:hover{
+	background-image: url("../img/audit_nopass2.png");
+}
+
+/**审核通过	*/
+.lt_audit_pass{
+	display:inline-block;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+	background-image: url("../img/audit_pass.png");
+	background-repeat: no-repeat;
+}
+
+/**审核通过     聚焦*/
+.lt_audit_pass:hover{
+	background-image: url("../img/audit_pass2.png");
+}
+
+/**返回	*/
+.lt_back{
+	display:inline-block;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+	background-image: url("../img/back.png");
+	background-repeat: no-repeat;
+}
+
+/**返回     聚焦*/
+.lt_back:hover{
+	background-image: url("../img/back2.png");
+}
+
+/**取消	*/
+.lt_cancle{
+	background-image: url("../img/cancle_before.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**取消     聚焦*/
+.lt_cancle:hover{
+	background-image: url("../img/cancle_focus.png");
+}
+
+/**关闭	*/
+.lt_close{
+	background-image: url("../img/close.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**关闭     聚焦*/
+.lt_close:hover{
+	background-image: url("../img/close2.png");
+}
+
+/**提交	*/
+.lt_commit{
+	background-image: url("../img/commit_before.png");
+	background-repeat: no-repeat;
+	width: 52px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**提交	聚焦*/
+.lt_commit:hover{
+	background-image: url("../img/commit_focus.png");
+}
+
+/**删除	*/
+.lt_delete{
+	display:inline-block;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+	background-image: url("../img/delete_before.png");
+	background-repeat: no-repeat;
+}
+
+/**删除	聚焦*/
+.lt_delete:hover{
+	text-decoration:none;
+	background-image: url("../img/delete_focus.png");
+}
+
+/**添加区域群组	*/
+.lt_add_distgroup{
+	background-image: url("../img/district.png");
+	background-repeat: no-repeat;
+	width: 82px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加区域群组	聚焦*/
+.lt_add_distgroup:hover{
+	background-image: url("../img/district_focus.png");
+}
+
+/**导出成Excel	*/
+.lt_export_excel{
+	background-image: url("../img/exportexcel.jpg");
+	background-repeat: no-repeat;
+	width: 108px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**导出成Excel	聚焦*/
+.lt_export_excel:hover{
+	background-image: url("../img/exportexcel_focus.png");
+}
+
+/**添加分组2	*/
+.lt_add_group2{
+	background-image: url("../img/group_before.png");
+	background-repeat: no-repeat;
+	width: 65px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加分组2 	聚焦*/
+.lt_add_group2:hover{
+	background-image: url("../img/group_focus.png");
+}
+
+/**完成编辑	*/
+.lt_edit_finish{
+	background-image: url("../img/group_edit_before.png");
+	background-repeat: no-repeat;
+	width: 65px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**完成编辑 	聚焦*/
+.lt_edit_finish:hover{
+	background-image: url("../img/group_edit_focus.png");
+}
+
+/**上传素材	*/
+.lt_upload_material{
+	background-image: url("../img/material_upload.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**上传素材 	聚焦*/
+.lt_upload_material:hover{
+	background-image: url("../img/material_upload2.png");
+}
+
+/**添加业务群组	*/
+.lt_add_progroup{
+	background-image: url("../img/progroup.png");
+	background-repeat: no-repeat;
+	width: 94px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加业务群组 	聚焦*/
+.lt_add_progroup:hover{
+	background-image: url("../img/progroup_focus.png");
+}
+
+/**保存修改	*/
+.lt_save_update{
+	background-image: url("../img/save_update.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**保存修改 	聚焦*/
+.lt_save_update:hover{
+	background-image: url("../img/save_update2.png");
+}
+
+/**搜索	*/
+.lt_search{
+	background-image: url("../img/search.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**搜索 	聚焦*/
+.lt_search:hover{
+	background-image: url("../img/search_focus.png");
+}
+
+/**显示为图表	*/
+.lt_showimg{
+	background-image: url("../img/showimg.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**显示为图表 	聚焦*/
+.lt_showimg:hover{
+	background-image: url("../img/showimg_focus.png");
+}
+
+/**显示为列表	*/
+.lt_showlist{
+	background-image: url("../img/showlist.png");
+	background-repeat: no-repeat;
+	width: 108px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**显示为列表 	聚焦*/
+.lt_showlist:hover{
+	background-image: url("../img/showlist_focus.png");
+}
+
+/**提交审核	*/
+.lt_commit_audit{
+	display:inline-block;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+	background-image: url("../img/sub_audit.png");
+	background-repeat: no-repeat;
+}
+
+/**提交审核 	聚焦*/
+.lt_commit_audit:hover{
+	text-decoration:none;
+	background-image: url("../img/sub_audit2.png");
+}
+
+/**添加超链接	*/
+.lt_add_url{
+	background-image: url("../img/supperurl.png");
+	background-repeat: no-repeat;
+	width: 94px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加超链接 	聚焦*/
+.lt_add_url:hover{
+	background-image: url("../img/supperurl_focus.png");
+}
+
+/**确定	*/
+.lt_sure{
+	background-image: url("../img/sure_before.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**确定 	聚焦*/
+.lt_sure:hover{
+	background-image: url("../img/sure_focus.png");
+}
+
+/**添加平台群组	*/
+.lt_add_terrance{
+	background-image: url("../img/terrace.png");
+	background-repeat: no-repeat;
+	width: 82px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加平台群组 	聚焦*/
+.lt_add_terrance:hover{
+	background-image: url("../img/terrace_focus.png");
+}
+
+/**切换到高清制作	*/
+.lt_change_hd{
+	background-image: url("../epginfo/images/system/change_hd.png");
+	background-repeat: no-repeat;
+	width: 98px;
+	height: 18px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**切换到高清制作 	聚焦*/
+.lt_change_hd:hover{
+	background-image: url("../epginfo/images/system/change_hd_focus.png");
+}
+
+/**切换到标清制作	*/
+.lt_change_hd{
+	background-image: url("../epginfo/images/system/change_sd.png");
+	background-repeat: no-repeat;
+	width: 98px;
+	height: 18px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**切换到标清制作 	聚焦*/
+.lt_change_hd:hover{
+	background-image: url("../epginfo/images/system/change_sd_focus.png");
+}
+
+/**清空组件	*/
+.lt_clear_info{
+	background-image: url("../epginfo/images/system/epginfo_clear.jpg");
+	background-repeat: no-repeat;
+	width: 73px;
+	height: 18px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**清空组件 	聚焦*/
+.lt_clear_info:hover{
+	background-image: url("../epginfo/images/system/epginfo_clear_focus.jpg");
+}
+
+/**删除组件	*/
+.lt_delete_info{
+	background-image: url("../epginfo/images/system/epginfo_delete.jpg");
+	background-repeat: no-repeat;
+	width: 73px;
+	height: 18px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**删除组件 	聚焦*/
+.lt_delete_info:hover{
+	background-image: url("../epginfo/images/system/epginfo_delete_focus.jpg");
+}
+
+/**预览	*/
+.lt_epginfo_preview{
+	background-image: url("../epginfo/images/system/epginfo_preview.jpg");
+	background-repeat: no-repeat;
+	width: 97px;
+	height: 32px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**预览 	聚焦*/
+.lt_epginfo_preview:hover{
+	background-image: url("../epginfo/images/system/epginfo_preview_focus.jpg");
+}
+
+/**保存	*/
+.lt_epginfo_save{
+	background-image: url("../epginfo/images/system/epginfo_save.jpg");
+	background-repeat: no-repeat;
+	width: 97px;
+	height: 32px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**保存 	聚焦*/
+.lt_epginfo_save:hover{
+	background-image: url("../epginfo/images/system/epginfo_save_focus.jpg");
+}
+
+/**提交审核	*/
+.lt_epginfo_submit{
+	background-image: url("../epginfo/images/system/epginfo_submit.jpg");
+	background-repeat: no-repeat;
+	width: 97px;
+	height: 32px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**提交审核 	聚焦*/
+.lt_epginfo_submit:hover{
+	background-image: url("../epginfo/images/system/epginfo_submit_focus.jpg");
+}
+
+/**立即制作高清	*/
+.lt_to_hd{
+	background-image: url("../epginfo/images/system/toHD.png");
+	background-repeat: no-repeat;
+	width: 73px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**立即制作高清 	聚焦*/
+.lt_to_hd:hover{
+	background-image: url("../epginfo/images/system/toHD_focus.png");
+}
+
+/**继续提交	*/
+.lt_to_submit{
+	background-image: url("../epginfo/images/system/toSubmit.png");
+	background-repeat: no-repeat;
+	width: 73px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**继续提交 	聚焦*/
+.lt_to_submit:hover{
+	background-image: url("../epginfo/images/system/toSubmit_focus.png");
+}
+
+/**添加排期	*/
+.lt_add_schedule{
+	background-image: url("../schedule/addSchedule.png");
+	background-repeat: no-repeat;
+	width: 65px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**继续提交 	聚焦*/
+.lt_add_schedule:hover{
+	background-image: url("../schedule/addSchedule_hover.png");
+}
+
+/**终止排期	*/
+.lt_stop_schedule{
+	background-image: url("../schedule/deleteSchedule.png");
+	background-repeat: no-repeat;
+	width: 104px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**终止排期 	聚焦*/
+.lt_stop_schedule:hover{
+	background-image: url("../schedule/deleteSchedule_hover.png");
+}
+
+/**终止所有排期	*/
+.lt_stop_allschedule{
+	background-image: url("../schedule/deleteAllSchedule.png");
+	background-repeat: no-repeat;
+	width: 104px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**终止所有排期 	聚焦*/
+.lt_stop_allschedule:hover{
+	background-image: url("../schedule/deleteAllSchedule_hover.png");
+}
+
+/**导出模板	*/
+.lt_export_package{
+	background-image: url("../schedule/export.png");
+	background-repeat: no-repeat;
+	width: 104px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**导出模板 	聚焦*/
+.lt_export_package:hover{
+	background-image: url("../schedule/export_hover.png");
+}
+
+/**制作排期	*/
+.lt_make_schedule{
+	background-image: url("../schedule/inSchedule.png");
+	background-repeat: no-repeat;
+	width: 65px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**制作排期 	聚焦*/
+.lt_make_schedule:hover{
+	background-image: url("../schedule/inSchedule_hover.png");
+}
+
+/**左移	*/
+.lt_move_left{
+	background-image: url("../schedule/msg_left.png");
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 14px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**左移 	聚焦*/
+.lt_move_left:hover{
+	background-image: url("../schedule/msg_left_hover.png");
+}
+
+/**右移	*/
+.lt_move_right{
+	background-image: url("../schedule/msg_right.png");
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 14px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**右移 	聚焦*/
+.lt_move_right:hover{
+	background-image: url("../schedule/msg_right_hover.png");
+}
+
+/**提交修改	*/
+.lt_commit_update{
+	background-image: url("../schedule/updateSchedule.png");
+	background-repeat: no-repeat;
+	width: 65px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**提交修改 	聚焦*/
+.lt_commit_update:hover{
+	background-image: url("../schedule/updateSchedule_hover.png");
+}
+
+/**小删除图标	*/
+.lt_small_delete{
+	background-image: url("../schedule/smaldelete_before.png");
+	background-repeat: no-repeat;
+	width: 14px;
+	height: 14px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**小删除图标 	聚焦*/
+.lt_small_delete:hover{
+	background-image: url("../schedule/smaldelete_focus.png");
+}
+
+/**添加按钮	*/
+.lt_add_btn{
+	background-image: url("../img/add_btn.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**添加按钮 	聚焦*/
+.lt_add_btn:hover{
+	background-image: url("../img/add_btn_focus.png");
+}
+
+/**返回上一级 按钮*/
+.lt_backup_btn{
+	background-image: url("../img/icon_backup.png");
+	background-repeat: no-repeat;
+	width: 94px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**返回上一级 按钮	聚焦*/
+.lt_backup_btn:hover{
+	background-image: url("../img/icon_backup_focus.png");
+}
+
+.lt_addBusinessGroup_btn{
+	display:inline-block;
+	background-image: url("../img/addApplyGroup.png");
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 26px;
+	cursor: hand;
+}
+.lt_addBusinessGroup_btn:hover{
+	background-image: url("../img/addApplyGroup_focus.png");
+}
+
+/**添加增值业务 按钮*/
+.lt_addBusiness_btn{
+	background-image: url("../img/addBusiness.png");
+	background-repeat: no-repeat;
+	width: 94px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**添加增值业务 按钮 聚焦*/
+.lt_addBusiness_btn:hover{
+	background-image: url("../img/addBusiness_focus.png");
+}
+/**增值业务统计图 按钮*/
+.lt_appReport_btn{
+	background-image: url("../img/lt_appReport.png");
+	background-repeat: no-repeat;
+	width: 118px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**增值业务统计图 按钮 聚焦*/
+.lt_appReport_btn:hover{
+	background-image: url("../img/lt_appReport_focus.png");
+}
+
+/**增值业务统计图 按钮*/
+.lt_districtReport_btn{
+	background-image: url("../img/lt_districtReport.png");
+	background-repeat: no-repeat;
+	width: 108px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**增值业务统计图 按钮 聚焦*/
+.lt_districtReport_btn:hover{
+	background-image: url("../img/lt_districtReport_focus.png");
+}
+
+/**各时段报表统计图 按钮*/
+.lt_reportByHour_btn{
+	background-image: url("../img/lt_reportByHour.png");
+	background-repeat: no-repeat;
+	width: 108px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**各时段报表统计图 按钮 聚焦*/
+.lt_reportByHour_btn:hover{
+	background-image: url("../img/lt_reportByHour_focus.png");
+}
+
+/**各业务分组报表统计图 按钮*/
+.lt_businessReport_btn{
+	background-image: url("../img/lt_businessReport.png");
+	background-repeat: no-repeat;
+	width: 118px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**各业务分组报表统计图 按钮 聚焦*/
+.lt_businessReport_btn:hover{
+	background-image: url("../img/lt_businessReport_focus.png");
+}
+
+/**各平台报表统计图 按钮*/
+.lt_platform_btn{
+	background-image: url("../img/lt_platformReport.png");
+	background-repeat: no-repeat;
+	width: 108px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**各平台报表统计图 按钮 聚焦*/
+.lt_platform_btn:hover{
+	background-image: url("../img/lt_platformReport_focus.png");
+}
+
+
+
+/**各地区报表统计图 按钮*/
+.lt_cityReport_btn{
+	background-image: url("../img/lt_cityReport.png");
+	background-repeat: no-repeat;
+	width: 108px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+/**各地区报表统计图 按钮 聚焦*/
+.lt_cityReport_btn:hover{
+	background-image: url("../img/lt_cityReport_focus.png");
+}
+
+.bianji{
+	display: inline-block;
+	height:16px;
+	text-indent:16px;	
+	line-height:16px;
+	/*background: transparent url(../img/bianji.png) no-repeat 0 0;*/
+}
+
+.shanchu{
+	display: inline-block;
+	height:16px;
+	text-indent:16px;
+	line-height:16px;
+	/*background:transparent url(../img/shanchu.png) no-repeat 0 0;*/
+}
+
+.audit{
+	display: inline-block;
+	height:16px;
+	text-indent:16px;
+	line-height:16px;
+	/*background:transparent url(../img/audit.png) no-repeat 0 0;*/
+}
+
+.detail{
+	display: inline-block;
+	height:16px;
+	text-indent:16px;
+	line-height:16px;
+	/*background:transparent url(../img/icon_details.png) no-repeat 0 0;*/
+}
+
+.zengjian{
+	display: inline-block;
+	height:16px;
+	text-indent:16px;
+	line-height:16px;
+	/*background:transparent url(../img/zengjian.png) no-repeat 0 0;*/
+}
+
+.link{
+	display: inline-block;
+	height:16px;
+	text-indent:16px;
+	line-height:16px;
+	background:transparent url(../img/icon_link.png) no-repeat 0 0;
+}
+
+.tianjiao{
+	display: inline-block;
+	height:26px;
+	width:54px;
+	margin-left:5px;
+	vertical-align:middle;
+	background:transparent url(../img/add_btn.png) no-repeat 0 0;
+}
+.bianji,.shanchu,.audit,.detail,.zengjian,.link.tianjiao{
+	display:inline;
+	margin-right: 5px;
+}
+.tianjiao:HOVER {
+	background: transparent url(../img/add_btn_focus.png) no-repeat 0 0;
+}
+

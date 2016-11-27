@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators>
+	<excludes>
+        <pattern>/resources/**</pattern>
+        <pattern>/system/login_index.do</pattern>
+        <pattern>/system/login.do</pattern>
+        <pattern>/system/close_window.do</pattern>
+        <pattern>/system/login_force.jsp</pattern>
+        <pattern>/system/info.jsp</pattern>
+        <pattern>/index.jsp</pattern>
+        <pattern>/usermemcached/**</pattern>
+        <pattern>**/batchAuditingPre.do*</pattern>
+        <pattern>**/batchAuditingUI.do*</pattern>
+        <pattern>**/log/detail.do*</pattern>
+        <pattern>**/experienceMine/view.do*</pattern>
+        <pattern>**/projectRisk/riskList.do*</pattern>
+        <pattern>**/projectRisk/riskAdd.do*</pattern>
+        <pattern>**/projectRisk/riskUpdate.do*</pattern>
+        <pattern>**/projectRisk/riskDelete.do*</pattern>
+        <pattern>**/projectWeek/list.do*</pattern>
+        <pattern>**/projectManage/projectUpdate.do*</pattern>
+        <pattern>**/project/manage/project_update.jsp*</pattern>
+        <pattern>**/projectManage/memberList.do*</pattern>
+        <pattern>**/project/manage/project_manage.jsp*</pattern>
+        <pattern>**/projectMail/mailList.do*</pattern>
+        <pattern>**/projectWeek/weekReportAdd.do*</pattern>
+        <pattern>**/projectWeek/weekReportUpdate.do*</pattern>
+        <pattern>**/projectMile/*</pattern>
+    </excludes>
+	<decorator name="main" page="/system/main.do">
+        <pattern>/**</pattern>
+    </decorator>
+</decorators>

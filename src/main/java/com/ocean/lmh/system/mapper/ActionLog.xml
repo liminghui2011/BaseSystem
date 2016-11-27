@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ActionLog">
+	<resultMap id="actionlogResultMap" type="com.ocean.lmh.base.model.entity.system.ActionLogValue">
+		<id column="aciton_id" property="id" />
+		<result column="action_type" property="type" />
+		<result column="action_content" property="content"  />
+		<result column="create_time" property="addDate"  />
+		<result column="action_oper" property="actor" />
+		<result column="action_uri" property="uri"  />
+		<result column="action_param" property="param"  />
+		<result column="detail_id" property="detailId"  />
+		<result column="role_name" property="roleName"  />
+		<result column="login_ip" property="loginIp"  />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		aciton_id, action_type, action_content, create_time, action_oper, 
+		action_uri, action_param, detail_id, role_name, login_ip
+  	</sql>
+  
+  	<!-- 插入一条日志记录 -->
+  	<insert id="insertActionLog" parameterType="com.ocean.lmh.base.model.entity.system.ActionLogValue">
+  		insert into system_action_log (action_type, action_content, create_time, 
+  			action_oper, action_uri, action_param, detail_id, role_name, login_ip)
+  		values (#{type},#{content},#{addDate},#{actor},#{uri},#{param},#{detailId},#{roleName},#{loginIp})
+  	</insert>
+  
+  	<!-- 根据属性id获取一条日志记录信息 -->
+	<select id="selectByPrimaryKey" resultMap="actionlogResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from system_action_log
+		where aciton_id = #{aciton_id}
+	</select>
+  	
+  	<!-- 根据传入的条件分页获取日志信息 -->  	
+  	<select id="selectListPageByMap" resultMap="actionlogResultMap" parameterType="java.util.Map">
+  		select 
+  		<include refid="Base_Column_List" />
+  		from system_action_log where 1=1
+  		<if test="roleName != null and roleName !=''"> and role_name like CONCAT(CONCAT('%', #{roleName}),'%')</if>
+  		<if test="actor != null and actor !=''"> and action_oper like CONCAT(CONCAT('%', #{actor}),'%')</if>
+  		<if test="content != null and content !=''"> and action_content like CONCAT(CONCAT('%', #{content}),'%')</if>
+  		<if test="s_date != null and e_date != null"> and create_time &gt;= #{s_date} and create_time &lt;= #{e_date}</if>
+  		order by aciton_id desc  
+  	</select>
+</mapper>

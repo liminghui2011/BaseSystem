@@ -1,0 +1,16 @@
+/*!
+ * jQuery UI Accordion 1.9.2
+ * http://jqueryui.com
+ *
+ * Copyright 2012 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion#theming
+ */
+.ui-myaccordion .ui-myaccordion-header { display: block; cursor: pointer; position: relative;  padding: .5em .5em .5em .7em; zoom: 1; }
+.ui-myaccordion .ui-myaccordion-icons { padding-left: 2.2em; }
+.ui-myaccordion .ui-myaccordion-noicons { padding-left: .7em; }
+.ui-myaccordion .ui-myaccordion-icons .ui-myaccordion-icons { padding-left: 2.2em; }
+.ui-myaccordion .ui-myaccordion-header .ui-myaccordion-header-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
+.ui-myaccordion .ui-myaccordion-content { /*padding: 1em 2.2em;*/ border-top: 0; overflow: hidden; zoom: 1; }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Privilege">
+	<resultMap id="PrivilegeResultMap" type="com.ocean.lmh.base.model.entity.system.PrivilegeValue">
+		<id column="privilege_id" property="id" jdbcType="INTEGER" />
+		<result column="privilege_name" property="name" jdbcType="VARCHAR" />
+		<result column="privilege_uri" property="uri" jdbcType="VARCHAR" />
+		<result column="pgroup_name" property="groupName" jdbcType="VARCHAR" />
+		<result column="privilege_description" property="description" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		privilege_id, privilege_name, privilege_uri, pgroup_name, privilege_description
+    </sql>
+  
+  	<!-- 根据属性id获取菜单权限记录信息 -->
+	<select id="getById" resultMap="PrivilegeResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from system_privilege
+		where privilege_id = #{id}
+	</select>
+	
+	<!-- 获取名称为name而id值不为传入id的记录信息 -->
+	<select id="selectByNameAndId" resultMap="PrivilegeResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_privilege where 1=1
+		<if test="name != null"> and privilege_name = #{name}</if>
+		and privilege_id != #{id}
+	</select>
+
+	<!-- 获取所有的权限路径信息 -->
+	<select id="getPrivilegeUriList" resultType="java.lang.String">
+		select privilege_uri from system_privilege
+	</select>
+	
+	<!-- 根据id删除记录信息 -->
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from system_privilege
+		where privilege_id = #{id}
+  	</delete>
+    
+    <!-- 插入一条权限记录信息 -->
+	<insert id="insert" parameterType="com.ocean.lmh.base.model.entity.system.PrivilegeValue">
+		insert into system_privilege (privilege_id, privilege_name, privilege_uri, pgroup_name, privilege_description)
+		values (#{id}, #{name},	#{uri},	#{groupName}, #{description})
+  	</insert>
+
+	<!-- 根据id更新一条菜单权限记录信息 -->
+	<update id="update" parameterType="com.ocean.lmh.base.model.entity.system.PrivilegeValue">
+		update system_privilege
+		<set>
+			<if test="name != null">privilege_name = #{name},</if>
+			<if test="uri != null">privilege_uri = #{uri},</if>
+			<if test="groupName != null">pgroup_name = #{groupName},</if>
+			<if test="description != null">privilege_description = #{description},</if>
+		</set>		
+		where privilege_id = #{id}
+	</update>
+
+	<!-- 根据条件分页查询菜单权限记录信息 -->
+	<select id="selectListPageByMap" resultMap="PrivilegeResultMap"
+		parameterType="java.util.Map">
+		select <include refid="Base_Column_List" />
+		from system_privilege where 1=1
+		<if test="name != null"> and privilege_name like CONCAT(CONCAT('%', #{name}),'%')</if>
+		<if test="groupName != null"> and pgroup_name like CONCAT(CONCAT('%', #{groupName}),'%') </if>
+		order by pgroup_name,privilege_id desc
+	</select>
+
+	<!-- 获取所有的菜单权限信息按group_name和id排序后返回 -->
+	<select id="selectOrderByGroupAndId" resultMap="PrivilegeResultMap">
+		select <include refid="Base_Column_List" />
+		from system_privilege order by pgroup_name,privilege_id
+	</select>
+	
+	<!-- 查询指定id集合值的菜单权限记录信息 -->
+	<select id="selectByListIds" resultMap="PrivilegeResultMap" parameterType="java.util.Map">
+		select <include refid="Base_Column_List" />
+		from system_privilege where privilege_id in
+		<foreach collection="list" item="ids" open="(" separator="," close=")">
+			#{ids}
+		</foreach>
+	</select>
+	
+	<!-- 根据角色id获取其具备的菜单权限记录 -->
+	<select id="selectByRoleId" resultMap="PrivilegeResultMap" parameterType="java.lang.Integer">
+		select <include refid="Base_Column_List" />
+		from system_privilege where privilege_id in (select privilege_id from system_role_privilege where role_id = #{id})
+	</select>
+</mapper>

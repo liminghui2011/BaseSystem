@@ -1,0 +1,412 @@
+@CHARSET "UTF-8";
+/** 导航条 */
+.navbar-inner {
+	background: #F8F8F8;
+	filter: none;
+}
+
+.navbar-inner .nav-collapse {
+	margin-top: 16px;
+}
+
+.navbar .nav > li > a {
+  float: none;
+  padding: 10px 15px 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: none;
+  font-size: 18px;
+}
+
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: transparent;
+  border-bottom: 4px solid #FFFFFF;
+}
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: transparent;
+  border-bottom: 4px solid #FFFFFF;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
+/** 左侧菜单 */
+#menu-left .nav-list > li > a, #menu-left .nav-list .nav-header {
+    margin-left: -15px;
+    margin-right: -15px;
+    text-shadow: none;
+    border-top: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    color: #333333;
+    padding: 8px 10px;
+}
+
+
+#menu-left .nav-list > li > a span{
+	padding-left: 8px;
+	margin-left: 2PX;
+	border-left: 1px solid #DDDDDD;
+}
+
+#menu-left .accordion-inner {
+	padding: 0;
+	border-top: none;
+}
+
+
+#menu-left .nav-list li a.accordion-toggle {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+#menu-left .nav-list  li  a.current {
+	background: #F8F8F8;
+	color: #FFFFFF;
+	border: 1px solid #F8F8F8;
+}
+
+#menu-left .nav-list li a.collapsed {
+	border-bottom: none;
+}
+
+#menu-left .nav-list li a.first {
+	border-top: none;
+}
+
+.toggle-menu {
+	text-align: center;
+	background: #F8F8F8;
+	cursor: pointer;
+}
+
+.icon-only{
+	text-align: center;
+}
+
+#content .accordion-heading .accordion-toggle {
+	background: #F8F8F8;
+	color: #FFFFFF;
+	text-decoration: none;
+	border: 1px solid #F8F8F8;
+	border-bottom: 1px solid #C9C9C9;
+}
+
+#content .accordion-heading .accordion-toggle span{
+	border-left: 1px solid #FFFFFF; 
+	padding-left: 6px;
+	margin-left:6px;
+	color: black;
+}
+
+#content .accordion-inner .table{
+	margin-bottom: 0;
+}
+
+#content .accordion-inner .table .pagination {
+	height: 30px;
+	margin: 0;
+}
+
+#content .accordion-inner .table .pagination a {
+	line-height: 30px;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #EEEEEE;
+}
+
+#content .modal{
+	margin-top: -150px;
+}
+
+#content .paginationPanel .input-mini{
+	width: 30px;
+}
+
+#content .nomargin{
+	margin: 0;
+}
+#content .nopadding{
+	padding: 0;
+}
+
+#content .toggleCheck{
+	background: #F8F8F8;
+	color:#FFFFFF;
+}
+
+#content .table td{
+	vertical-align: middle;
+	word-wrap: break-word; 
+	word-break: normal; 
+}
+/**
+*强制最后一行不换行,因为最后一个td一般为操作行
+**/
+#content .table tr>td:last-child{
+	white-space: nowrap;
+}
+
+/* 指定表格最后一行的背景色为白色  */
+.table-striped tbody tr:last-child td{
+	background-color: #FFFFFF!important;
+}
+
+#content .table thead tr {
+	border-top:1px solid #E5E5E5;
+	background:#F1F9FC; 
+	/**background-image: url("../img/51.png");*/
+	height: 38px; 
+	white-space: nowrap;
+}
+
+/* 指定表格中的每一行的高度为38px  */
+#content .table tbody tr{
+	height: 38px; 
+}
+
+.table thead th{vertical-align: middle;}
+.ztree li span.button.add {
+	margin-left:2px; 
+	margin-right: -1px; 
+	background-position:-144px 0; 
+	vertical-align:top; 
+	*vertical-align:middle
+}
+
+#menus .modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+.w90{
+	width: 90%;
+}
+
+.w80{
+	width: 80%;
+}
+
+.privilege_checked{
+	color:#FFFFFF;
+	background:#F8F8F8; 
+}
+
+/**jquery validate 验证时, 不填此字段的提示样式*/
+label.error{
+    margin-left: 10px;
+    color: #fff;
+}
+
+/** 退出时的确认弹出框样式  */
+#system_out_sure
+{
+	display:none;
+	width:365px;
+	height:160px;
+	background:url('../img/edit2_bg.png') no-repeat;
+	font-size:14px;
+	line-height:20px;
+	text-align:left;
+	color:black;
+	z-index: 600;
+}
+#system_out_sure .system_out_top
+{
+	height:37px;
+	line-height:37px;
+	padding-left:8px;
+	font-weight:bolder;
+}
+#system_out_sure .system_out_center
+{
+	height:81px;
+}
+#system_out_sure .system_out_bottom
+{
+	position:absolute;
+	height:43px;
+}
+.system_out_bottom .sure_btn
+{
+	position:absolute;
+	top:9px;
+	left:236px;
+	width:54px;
+	height:26px;
+	background:url('../img/sure_before.png') no-repeat;
+	cursor:pointer;
+}
+.system_out_bottom .sure_btn:hover
+{
+	background:url('../img/sure_focus.png') no-repeat;
+	cursor:pointer;
+}
+.system_out_top .delete
+{
+	position:absolute;
+	top:12px;
+	left:334px;
+	width:14px;
+	height:14px;
+	background:url('../img/smaldelete_before.png') no-repeat;
+	cursor:pointer;
+}
+.system_out_top .delete:hover
+{
+	background:url('../img/smaldelete_focus.png') no-repeat;
+}
+.system_out_bottom .cancle
+{
+	position:absolute;
+	top:9px;
+	left:303px;
+	width:54px;
+	height:26px;
+	background:url('../img/cancle_before.png') no-repeat;
+	cursor:pointer;
+}
+.system_out_bottom .cancle:hover
+{
+	background:url('../img/cancle_focus.png') no-repeat;
+	cursor:pointer;
+}
+
+/** 必须输入的文本框后面的*星号样式    */
+.input_msg_style
+{
+	color: red;
+	font-size: 20px;
+	padding-top: 5px;
+}
+
+/** 首页头部图片滚动样式    */
+@-ms-keyframes move{from{background-position:0% 0%}to{background-position:100% 0%}}
+@-moz-keyframes move{from{background-position:0% 0%}to{background-position:100% 0%}}
+@-webkit-keyframes move{from{background-position:0% 0%}to{background-position:100% 0%}}
+@keyframes move{
+	from{background-position:0% 0%}
+	to{background-position:100% 0%}
+}
+
+#my_animate_area{
+	width:100%;
+	height:190px;
+	-webkit-animation:move 20s linear infinite;
+	-moz-animation:move 20s linear infinite;
+	animation:move 20s linear infinite;
+	background-image:url(../img/129.png);
+	background-position:0px 0px;
+	background-repeat:repeat-x
+}
+
+
+.content{
+	width: 100%;
+	padding:5px;
+	border:1px solid #e5e5e5;
+	border-top:0px;
+	border-radius:4px;
+}
+
+.title{
+	width:100%;
+	height:20px;
+	padding:16px 0px 10px 0px;
+	text-indent:35px;
+	background-color: #EEF6F9;
+	/*background: #F8F8F8 url(../img/lt_icon_right.png) no-repeat 5px center;*/
+	
+}
+
+
+
+.false-span{
+	display:inline-block;
+	float:left;
+	width:48px;
+	height:70px;
+	background: transparent url(../img/result_false.png) no-repeat 0 center;
+}
+.right-span{
+	display:inline-block;
+	float:left;
+	width:48px;
+	height:70px;
+	background: transparent url(../img/result_right.png) no-repeat 0 center;
+}
+
+.wrapper{
+	width: 100%;
+	min-width: 1360px;	
+}
+
+.top_bg2{
+	height:90px;
+	background: transparent url(../img/top_bg2.png) repeat-x 0 0;
+}
+
+.modal-msg{
+	float: left;
+	margin-left:15px;
+}
+
+.modal-title{
+	font-size:16px;
+	font-weight: bold;
+}
+
+/** 2014-10-09样式更新 */
+/** 顶部背景样式 */
+.top_bg2_new{
+	height:50px;
+	/*background-color: #366DAE;*/
+	background-color: #266DAF;
+}
+/** 顶部右下角文字样式 */
+.text_white{
+	color: white;
+}
+
+/** 左边导航背景*/
+.left_bg{
+	background-color: #F2F9FC;
+	border-right:1px solid #CADEE7;
+}
+.ui-myaccordion-header{background: #D6E7F1;}
+
+.ui-myaccordion .ui-myaccordion-content
+{
+	padding: 0.3em 0.0em
+}
+#mymenus li:hover
+{
+	/*background: transparent url(../img/blue_a_hover.png) no-repeat 0 center;*/
+}
+.nav > li >a:hover
+{
+	background: none;
+}
+.menuAactive
+{
+	background: transparent url(../img/bule_new_a_hover.png) no-repeat 0 center;
+}
+.menuAactive > span{color: #FFF;}
+.nav-list > li > a{margin-left: 25px;}
+
+#mymenus > li > a{text-shadow:none;}
+
+#top_banner_text{padding-right: 15px;}
+#top_banner_text > li{float: left;background: #1A5380;margin-left: 5px;padding: 3px;text-align: center;-webkit-border-radius:4px;}
+#top_banner_text > li:nth-child(1){background: none;}
+#top_banner_text > li a:hover{text-decoration: none;color: #FFF;}

@@ -1,0 +1,297 @@
+@CHARSET "UTF-8";
+
+/**查询按钮		 默认*/
+.lt_query {
+	background-image: url('../img/search.png');
+	border-style: none;
+	width: 54px;
+	height: 26px;
+	background-repeat: no-repeat;
+}
+
+/**查询按钮		聚焦*/
+.lt_query2 {
+	background-image: url('../img/search_focus.png');
+	border-style: none;
+	width: 54px;
+	height: 26px;
+	background-repeat: no-repeat;
+}
+
+/**上传素材		*/
+.lt_upload {
+	background-image: url('../img/material_upload.png');
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**上传素材		聚焦*/
+.lt_upload2 {
+	background-image: url("../img/material_upload2.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**取消		*/
+.lt_cancel{
+	background-image: url("../img/cancle_before.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**取消		聚焦*/
+.lt_cancel2{
+	background-image: url("../img/cancle_focus.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+
+/**删除		*/
+.lt_delete{
+	background-image: url("../img/delete_before.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**删除		聚焦*/
+.lt_delete2{
+	background-image: url("../img/delete_focus.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**审核通过		*/
+.lt_auditpass{
+	background-image: url("../img/audit_pass.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*审核通过	聚焦*/
+.lt_auditpass2{
+	background-image: url("../img/audit_pass2.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**审核不通过		*/
+.lt_audit_nopass{
+	background-image: url("../img/audit_nopass.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*审核不通过	聚焦*/
+.lt_audit_nopass2{
+	background-image: url("../img/audit_nopass2.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**确定		*/
+.lt_confirm{
+	background-image: url("../img/sure_before.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*确定	聚焦*/
+.lt_confirm2{
+	background-image: url("../img/sure_focus.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**提交审核		*/
+.lt_sub_audit{
+	background-image: url("../img/sub_audit.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*提交审核	聚焦*/
+.lt_sub_audit2{
+	background-image: url("../img/sub_audit2.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**保存修改	*/
+.lt_save_update{
+	background-image: url("../img/save_update.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*保存修改	聚焦*/
+.lt_save_update2{
+	background-image: url("../img/save_update2.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**关闭	*/
+.lt_close{
+	background-image: url("../img/close.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*关闭	聚焦*/
+.lt_close2{
+	background-image: url("../img/close2.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**返回	*/
+.lt_back{
+	background-image: url("../img/back.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*返回	聚焦*/
+.lt_back2{
+	background-image: url("../img/back2.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**下拉	*/
+.lt_pulldown{
+	background-image: url("../img/pulldown.jpg");
+	background-repeat: no-repeat;
+	width: 17px;
+	height: 20px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+	position: relative;
+	left: -25px;
+}
+
+/*下拉	聚焦*/
+.lt_pulldown2{
+	background-image: url("../img/pulldown2.jpg");
+	background-repeat: no-repeat;
+	width: 17px;
+	height: 20px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+	position: relative;
+	left: -25px;
+}
+
+/*向右的导航箭头图标*/
+.lt_icon_rigt{
+	background-image: url("../img/lt_icon_right.png");
+	background-repeat: no-repeat;
+}
+/*取消chrome浏览器下textarea的默认样式标*/
+textarea{resize:none}
+
+/**
+*素材管理模块
+**/
+.label-content{
+padding-left: 20px;
+text-align: left;
+width: 30%;
+}
+.td-content{
+	
+}
+
+
+
+
+
+
+
+
+
+
+

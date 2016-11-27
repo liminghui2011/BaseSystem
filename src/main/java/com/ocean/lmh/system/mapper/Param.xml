@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Param" >
+  <resultMap id="ParamResultMap" type="com.ocean.lmh.base.model.entity.system.ParamValue" >
+    <id column="param_id" property="id" jdbcType="INTEGER" />
+    <result column="param_name" property="name" jdbcType="VARCHAR" />
+    <result column="param_description" property="description" jdbcType="VARCHAR" />
+    <result column="is_init" property="isInit" jdbcType="INTEGER" />
+  </resultMap>
+
+   <resultMap id="ParamHasItemResultMap" type="com.ocean.lmh.base.model.entity.system.ParamValue" extends="ParamResultMap" >
+	    <collection property="items" ofType="com.ocean.lmh.base.model.entity.system.ParamItemValue" >
+	    	<id column="pid" property="id" jdbcType="INTEGER" />
+		    <result column="param_id" property="paramId" jdbcType="INTEGER" />
+		    <result column="pname" property="name" jdbcType="VARCHAR" />
+		    <result column="value" property="value" jdbcType="VARCHAR" />
+	    
+	    </collection>
+  </resultMap>
+  
+  
+  <sql id="Param_Column_List" >
+    param_id, param_name, param_description, is_init
+  </sql>
+  
+  <select id="selectById" resultMap="ParamHasItemResultMap" parameterType="java.lang.Integer" >
+    select p.param_id, p.param_name, p.param_description, p.is_init, 
+    pi.item_id as pid,pi.item_name as pname,pi.item_value as value,pi.param_id
+   
+    from system_parameter as p left outer join system_param_item as pi
+    on p.param_id = pi.param_id
+    where p.param_id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from system_parameter
+    where param_id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ocean.lmh.base.model.entity.system.ParamValue"  >
+    insert into system_parameter (param_id, param_name, param_description, 
+      is_init)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{isInit,jdbcType=INTEGER})
+  </insert>
+  
+  <update id="update" parameterType="com.ocean.lmh.base.model.entity.system.ParamValue" >
+    update system_parameter
+    <set >
+      <if test="name != null" >
+        param_name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        param_description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isInit != null" >
+        is_init = #{isInit,jdbcType=INTEGER},
+      </if>
+    </set>
+    where param_id = #{id,jdbcType=INTEGER}
+  </update>
+
+  	<select id="selectByIdAndOther" resultMap="ParamResultMap" parameterType="java.util.Map">
+  		select 
+  		<include refid="Param_Column_List" />
+  		from system_parameter where 1=1
+  		<if test="name != null"> and param_name = #{name}</if>
+  		<if test="description != null"> and param_description = #{description}</if>
+  		<if test="id != null">and param_id != #{id,jdbcType=INTEGER}</if>
+  	</select>
+  
+  	<select id="selectAllParams" resultMap="ParamHasItemResultMap" >
+  		select <include refid="Param_Column_List" />
+  		from system_parameter where 1=1
+  	</select>
+  	
+  	<select id="selectPageList" resultMap="ParamResultMap" parameterType="java.util.Map">
+  		select 
+  		<include refid="Param_Column_List" />
+  		from system_parameter
+  	</select>
+  	
+  	<select id="selectListPageByMap" resultMap="ParamResultMap" parameterType="java.util.Map">
+  		select 
+  		<include refid="Param_Column_List" />
+  		from system_parameter where 1=1
+  		<if test="name != null"> and param_name like #{name}</if>
+  		<if test="description != null"> and param_description like #{description}</if>
+  		order by param_id desc
+  	</select>
+</mapper>

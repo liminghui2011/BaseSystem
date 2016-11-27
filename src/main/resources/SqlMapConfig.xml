@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+<configuration>
+	<plugins>
+		<plugin interceptor="com.ocean.lmh.base.util.PagePlugin">
+			<property name="dialect" value="mysql" />
+			<property name="pageSqlId" value=".*ListPage.*" />
+		</plugin>
+	</plugins>
+	
+	<!-- 接口映射文件的位置 -->
+	<mappers>
+		
+		<!-- 系统管理的mapping映射 begin -->
+		<mapper resource="com/ocean/lmh/system/mapper/ActionLog.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/ActionLogDetail.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/Menu.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/Param.xml" /> 
+		<mapper resource="com/ocean/lmh/system/mapper/ParamItem.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/SystemUser.xml" /> 
+		<mapper resource="com/ocean/lmh/system/mapper/Privilege.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/Role.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/RolePrivilege.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/UserRole.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/UserActionLog.xml"/> 
+		<mapper resource="com/ocean/lmh/system/mapper/Sequence.xml"/>
+		<mapper resource="com/ocean/lmh/system/mapper/OperPrivilege.xml"/>
+		<mapper resource="com/ocean/lmh/system/mapper/SeriesCode.xml"/>
+		<mapper resource="com/ocean/lmh/system/mapper/SystemStatus.xml"/>
+		<mapper resource="com/ocean/lmh/system/mapper/SystemStatusItem.xml"/>
+		<!-- 系统管理的mapping映射 end --> 
+		
+	</mappers>
+</configuration>

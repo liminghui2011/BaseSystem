@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Role">
+	<resultMap id="roleResultMap" type="com.ocean.lmh.base.model.entity.system.RoleValue">
+		<id column="role_id" property="id" jdbcType="INTEGER" />
+		<result column="role_name" property="name" jdbcType="VARCHAR" />
+		<result column="role_description" property="description" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		role_id, role_name, role_description
+  	</sql>
+
+	<!-- 根据id获取一条角色记录 -->
+	<select id="selectByPrimaryKey" resultMap="roleResultMap"
+		parameterType="java.lang.Integer">
+		select role_id, role_name, role_description
+		from system_role
+		where role_id = #{id}
+  	</select>
+
+	<!-- 根据条件分页获取角色记录信息 -->
+	<select id="selectListPageByMap" resultMap="roleResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_role where 1=1
+		<if test="name != null"> and role_name like CONCAT(CONCAT('%', #{name}),'%')</if>
+		<if test="description != null"> and role_description=#{description}</if>
+	</select>
+
+	<!-- 根据id删除一条角色记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from system_role
+		where role_id = #{id}
+  	</delete>
+
+	<!-- 插入一条角色记录信息 -->
+	<insert id="insertRole" useGeneratedKeys="true" keyProperty="id"
+		parameterType="com.ocean.lmh.base.model.entity.system.RoleValue">
+		insert into system_role
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="name != null">role_name,</if>
+			<if test="description != null">role_description,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="name != null">#{name},</if>
+			<if test="description != null">#{description},</if>
+		</trim>
+	</insert>
+
+	<!-- 根据id更新一条记录信息 -->
+	<update id="updateByPrimaryKey" parameterType="com.ocean.lmh.base.model.entity.system.RoleValue">
+		update system_role
+		<set>
+			<if test="name != null">role_name = #{name},</if>
+			<if test="description != null">role_description = #{description},</if>
+		</set>
+		where role_id = #{id}
+	</update>
+
+	<!-- 查询id不等于传入的id但名称等于传进来的名称的记录 -->
+	<select id="selectByNameAndId" resultMap="roleResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_role where 1=1
+		<if test="name != null"> and role_name = #{name}</if>
+		<if test="id != null"> and role_id != #{id}</if>
+	</select>
+
+	<!-- 查询符合条件的所有记录信息 -->
+	<select id="selectAllRoles" resultMap="roleResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_role where 1=1
+		<if test="name != null"> and role_name=#{name}</if>
+		<if test="description != null"> and role_description=#{description}</if>
+	</select>
+
+	<!-- 根据用户记录的id查询此用户拥有的角色信息 -->
+	<select id="selectRolesByUserId" resultMap="roleResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from system_role where role_id in (select role_id from system_oper_role where oper_id = #{id})
+	</select>
+</mapper>

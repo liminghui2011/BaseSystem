@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Menu">
+	<resultMap id="menuResultMap" type="com.ocean.lmh.base.model.entity.system.MenuValue">
+		<id column="menu_id" property="id" />
+		<result column="parent_id" property="pid" />
+		<result column="menu_name" property="name" />		
+		<result column="node_order" property="position" />
+		<result column="menu_uri" property="uri" />
+		<result column="menu_description" property="description" /> 
+		<association property="parent" column="parent_id" select="Menu.selectByPrimaryKey">
+		</association>
+	</resultMap>
+	<resultMap id="menuAndChildResultMap" type="com.ocean.lmh.base.model.entity.system.MenuValue" extends="menuResultMap">
+		<!-- 查询子模块 -->  
+        <collection column="menu_id" property="children" select="Menu.getChildMenus" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		menu_id, parent_id, menu_name, node_order, menu_uri, menu_description
+  	</sql>
+  
+	<!-- 根据id查询单个菜单信息 -->
+	<select id="selectByPrimaryKey" resultMap="menuResultMap"
+		parameterType="java.lang.Integer">
+		select menu_id, parent_id, menu_name, node_order, menu_uri, menu_description
+		from system_menu where menu_id = #{id}
+	</select>
+	
+	<!-- 根据id查询菜单，包括此菜单下的所有子菜单 -->
+	<select id="selectMenuHasChild" resultMap="menuAndChildResultMap"
+		parameterType="java.lang.Integer">
+		select menu_id, parent_id, menu_name, node_order, menu_uri, menu_description
+		from system_menu where menu_id = #{id}
+	</select>	
+	<select id="getChildMenus" resultMap="menuAndChildResultMap"
+		parameterType="java.lang.Integer">
+		select menu_id, parent_id, menu_name, node_order, menu_uri, menu_description
+		from system_menu where parent_id = #{id} order by node_order asc
+	</select>
+		
+	<!-- 根据条件分页查询菜单列表信息 -->
+	<select id="selectListPageByMap" resultMap="menuResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_menu where 1=1 and parent_id is null
+		<if test="name != null and description != null">
+			and (menu_name like CONCAT(CONCAT('%', #{name}),'%') or menu_description like CONCAT(CONCAT('%', #{description}),'%'))</if>		
+		<if test="position != null">and node_order = #{position}</if>
+		<if test="uri != null">and menu_uri = #{uri}</if>
+	</select>
+	
+	<!-- 根据条件查询符合记录的所有菜单信息 -->
+	<select id="selectAllMenuByConditions" resultMap="menuResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_menu where 1=1
+		<if test="pid != null">and parent_id = #{pid}</if>
+		<if test="name != null and name != ''">and menu_name = #{name}</if>		
+		<if test="position != null">and node_order = #{position}</if>
+		<if test="uri != null">and menu_uri = #{uri}</if>
+		<if test="description != null and description != ''">and menu_description = #{description}</if>
+	</select>
+	
+	<!-- 获取指定菜单名且其id不等于传入的id值的菜单记录 -->
+	<select id="selectByNameAndNotId" resultMap="menuResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_menu where 1=1
+		<if test="id != null">and menu_id != #{id}</if>
+		<if test="name != null and name != ''">and menu_name = #{name}</if>
+	</select>
+
+	<!-- 根据属性id删除菜单信息 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from system_menu
+		where menu_id = #{id}
+    </delete>
+    
+    <!-- 根据父菜单id删除菜单信息 -->
+	<delete id="deleteByParentId" parameterType="java.lang.Integer">
+		delete from system_menu
+		where parent_id = #{pid}
+    </delete>
+
+	<!-- 插入一条菜单信息 -->
+	<insert id="insertMenu" useGeneratedKeys="true" keyProperty="id" parameterType="com.ocean.lmh.base.model.entity.system.MenuValue">
+		insert into system_menu
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="pid != null">parent_id,</if>
+			<if test="name != null">menu_name,</if>			
+			<if test="position != null">node_order,</if>
+			<if test="uri != null">menu_uri,</if>
+			<if test="description != null">menu_description,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="pid != null">#{pid},</if>
+			<if test="name != null">#{name},</if>			
+			<if test="position != null">#{position},</if>
+			<if test="uri != null">#{uri},</if>
+			<if test="description != null">#{description},</if>
+		</trim>
+	</insert>
+
+	<!-- 根据id可选择的更新菜单信息 -->
+	<update id="updateMenu" parameterType="com.ocean.lmh.base.model.entity.system.MenuValue">
+		update system_menu
+		<set>
+			<if test="pid != null">parent_id = #{pid},</if>
+			<if test="name != null">menu_name = #{name},</if>			
+			<if test="position != null">node_order = #{position},</if>
+			<if test="uri != null">menu_uri = #{uri},</if>
+			<if test="description != null">menu_description = #{description},</if>
+		</set>
+		where menu_id = #{id}
+	</update>
+	
+	<!-- 查询菜单的最大位置数 -->
+	<select id="selectMaxPosition" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select max(node_order) from system_menu where parent_id=#{Pid}
+	</select>
+	
+	<!-- 获取所有的树根菜单节点 -->
+	<select id="selectRootMenuNode" resultMap="menuResultMap" >
+		select <include refid="Base_Column_List" /> from system_menu where parent_id is null
+	</select>
+	
+	<!-- 获取指定菜单名且其父菜单为空的记录信息 -->
+	<select id="selectByNameAndPid" resultMap="menuResultMap" parameterType="java.util.Map">
+		select <include refid="Base_Column_List" /> from system_menu where menu_name=#{name} and parent_id is null 
+	</select>
+	
+	
+</mapper>

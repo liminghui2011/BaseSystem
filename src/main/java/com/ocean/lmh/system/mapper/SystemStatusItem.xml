@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SystemStatusItem">
+	<resultMap id="systemStatusItemResultMap" type="com.ocean.lmh.base.model.entity.system.SystemStatusItemValue">
+		<id column="status_id" property="statusId" jdbcType="INTEGER" />
+		<result column="parent_statusid" property="parentStatusid"
+			jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		status_id, parent_statusid
+  	</sql>
+  
+  	<!-- 根据父状态id获取其下的所有子状态记录信息 -->
+	<select id="selectByParentStatusId" resultType="java.lang.Integer"
+		parameterType="java.lang.Integer">
+		select status_id
+		from system_status_item
+		where parent_statusid = #{statusId}
+	</select>
+	
+</mapper>

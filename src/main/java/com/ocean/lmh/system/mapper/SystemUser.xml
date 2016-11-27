@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SystemUser">
+	<resultMap id="systemUserResultMap" type="com.ocean.lmh.base.model.entity.system.UserValue">
+		<id column="oper_id" property="id" />
+		<result column="oper_name" property="userid" />
+		<result column="oper_password" property="password" />
+		<result column="oper_nikename" property="nickname" />
+		<result column="oper_city" property="city" />
+		<result column="last_login_time" property="lastLoginDate" />
+		<result column="oper_status" property="status" />
+		<result column="remark" property="remark" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		oper_id, oper_name, oper_password, oper_nikename, oper_city,
+		last_login_time, oper_status, remark
+  	</sql>
+
+	<!-- 根据id获取一条系统用户记录 -->
+	<select id="selectByPrimaryKey" resultMap="systemUserResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper
+		where oper_id = #{id}
+	</select>
+
+	<!-- 根据条件组合分页获取系统用户列表 -->
+	<select id="selectListPageByMap" resultMap="systemUserResultMap" parameterType="java.util.Map">
+		select <include refid="Base_Column_List" /> 
+		from system_oper where 1=1
+		<if test="userid != null and nickname != null">
+			and (oper_name like CONCAT(CONCAT('%', #{userid}),'%') or
+			oper_nikename like CONCAT(CONCAT('%', #{nickname}),'%'))
+		</if>
+		<if test="status != null"> and oper_status=#{status}</if>
+		<if test="deleteStatu != null"> and oper_status!=#{deleteStatu}</if>
+		order by oper_id desc
+	</select>
+
+	<!-- 根据条件获取符合条件的所有系统用户记录 -->
+	<select id="selectAllByProperty" resultMap="systemUserResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper where 1=1
+		<if test="userid != null"> and oper_name=#{userid}</if>
+		<if test="password != null"> and oper_password=#{password}</if>
+		<if test="nickname != null"> and oper_nikename=#{nickname}</if>
+	</select>
+
+	<!-- 根据id删除一条系统用户记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from system_oper
+		where oper_id = #{id}
+  	</delete>
+
+	<!-- 可选择的插入一条系统用户记录 -->
+	<insert id="insertSystemUser" useGeneratedKeys="true"
+		keyProperty="id" parameterType="com.ocean.lmh.base.model.entity.system.UserValue">
+		insert into system_oper
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userid != null">oper_name,</if>
+			<if test="password != null">oper_password,</if>
+			<if test="nickname != null">oper_nikename,</if>
+			<if test="city != null">oper_city,</if>
+			<if test="lastLoginDate != null">last_login_time,</if>
+			<if test="status != null">oper_status,</if>
+			<if test="remark != null">remark,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userid != null">#{userid},</if>
+			<if test="password != null">#{password},</if>
+			<if test="nickname != null">#{nickname}, </if>
+			<if test="city != null">#{city},</if>
+			<if test="lastLoginDate != null">#{lastLoginDate}, </if>
+			<if test="status != null">#{status},</if>
+			<if test="remark != null">#{remark},</if>
+		</trim>
+	</insert>
+
+	<!-- 根据userid可选择的更新一条系统用户记录 -->
+	<update id="updateByUserid" parameterType="com.ocean.lmh.base.model.entity.system.UserValue">
+		update system_oper
+		<set>
+			<if test="userid != null">oper_name = #{userid},</if>
+			<if test="password != null">oper_password = #{password},</if>
+			<if test="nickname != null">oper_nikename = #{nickname},</if>
+			<if test="city != null">oper_city = #{city},</if>
+			<if test="lastLoginDate != null">last_login_time = #{lastLoginDate},</if>
+			<if test="status != null">oper_status = #{status},</if>
+			<if test="remark != null">remark = #{remark},</if>
+		</set>
+		where oper_name = #{userid}
+	</update>
+
+	<!-- 根据id更新一条系统用户记录 -->
+	<update id="updateByPrimaryKey" parameterType="com.ocean.lmh.base.model.entity.system.UserValue">
+		update system_oper set
+		oper_name = #{userid},oper_password = #{password},oper_nikename = #{nickname},
+		oper_city = #{city},last_login_time = #{lastLoginDate},oper_status = #{status},remark=#{remark}
+		where oper_id = #{id}
+	</update>
+
+	<!-- 根据状态修改状态 -->
+	<update id="updateByStatus" parameterType="java.util.Map">
+		update system_oper set
+		oper_status=#{oldstauts} where oper_status=#{newstatus}
+	</update>
+
+	<!-- 根据用户id和id查询用户记录信息 -->
+	<select id="selectByNameAndId" resultMap="systemUserResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper where 1=1
+		<if test="userid != null"> and oper_name = #{userid}</if>
+		<if test="id != null"> and oper_id != #{id}</if>
+	</select>
+
+
+</mapper>

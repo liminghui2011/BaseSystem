@@ -1,0 +1,15 @@
+.tipsy { padding: 5px; font-size: 12px; opacity: 0.8; filter: alpha(opacity=80); background-repeat: no-repeat;  background-image: url(../img/tipsy.gif); }
+.tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
+.tipsy-inner { -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tipsy-north { background-position: top center; }
+.tipsy-south { background-position: bottom center; }
+.tipsy-east { background-position: right center; }
+.tipsy-west { background-position: left center; }
+
+.box-163css{ width:650px; margin:120px auto 0 auto;}
+.box-163css .qq{ margin-left:20px;}
+
+#gravity { width:100%; margin: 5px 0; border-spacing: 5px; }
+#gravity td { text-align:center; vertical-align: middle; padding:5px 0; background:#d0d0d0; }
+#gravity a:hover { color: #505050; background: none; }
+

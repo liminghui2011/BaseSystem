@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="OperPrivilege">
+	<resultMap id="operPrivilegeResultMap"
+		type="com.ocean.lmh.base.model.entity.system.OperPrivilegeValue">
+		<id column="op_id" property="opId" jdbcType="INTEGER" />
+		<result column="privilege_id" property="privilegeId" jdbcType="INTEGER" />
+		<result column="oper_name" property="operName" jdbcType="VARCHAR" />
+		<result column="oper_description" property="operDescription"
+			jdbcType="VARCHAR" />
+		<result column="oper_privilege_uri" property="uri"
+			jdbcType="VARCHAR" />
+		<result column="oper_level" property="operLevel"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		op_id, privilege_id, oper_name, oper_description, oper_privilege_uri,oper_level
+  </sql>
+  
+  	<!-- 根据id获取一条操作权限记录 -->
+	<select id="selectByPrimaryKey" resultMap="operPrivilegeResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper_privilege
+		where op_id = #{opId}
+	</select>
+	
+	<!-- 根据菜单权限id获取此权限下的所有操作权限记录 -->
+	<select id="selectByPrivilegeId" resultMap="operPrivilegeResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper_privilege
+		where privilege_id = #{privilegeId}
+	</select>
+	
+	<!-- 根据id删除一条操作权限记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from system_oper_privilege
+		where op_id = #{opId}
+  	</delete>
+  
+  	<!-- 插入一条操作权限记录 -->
+	<insert id="insertOperPrivilege" useGeneratedKeys="true" keyProperty="opId" 
+		parameterType="com.ocean.lmh.base.model.entity.system.OperPrivilegeValue">
+		insert into system_oper_privilege (privilege_id, oper_name,
+		oper_description, oper_privilege_uri, oper_level)
+		values (#{privilegeId}, #{operName},#{operDescription},#{uri},#{operLevel})
+  </insert>
+  
+	<!-- 根据id更新一条操作权限记录 -->
+	<update id="updateByPrimaryKey" parameterType="com.ocean.lmh.base.model.entity.system.OperPrivilegeValue">
+		update system_oper_privilege
+		<set>
+			<if test="privilegeId != null">privilege_id = #{privilegeId},</if>
+			<if test="operName != null">oper_name = #{operName},</if>
+			<if test="operDescription != null">oper_description = #{operDescription},</if>
+			<if test="uri != null">oper_privilege_uri = #{uri},</if>
+			<if test="operLevel != null">oper_level = #{operLevel},</if>
+		</set>
+		where op_id = #{opId}
+	</update>
+	
+	<!-- 获取名称为name而id值不为传入id的记录信息,需要的时候privilegeId也可作为查询参数 -->
+	<select id="selectByNameAndId" resultMap="operPrivilegeResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper_privilege where 1=1
+		<if test="name != null"> and oper_name = #{name}</if>
+		<if test="privilegeId != null"> and privilege_id = #{privilegeId}</if>
+		<if test="id != null"> and op_id != #{id}</if>
+	</select>
+	
+	<!-- 根据给定的id字符串批量获取操作权限记录信息 -->
+	<select id="selectByIds" resultMap="operPrivilegeResultMap" parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from system_oper_privilege where op_id in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</select>
+	
+	<!-- 根据角色id获取其具备的操作权限记录 -->
+	<select id="selectOperPrivilegeByRoleId" resultMap="operPrivilegeResultMap" parameterType="java.lang.Integer">
+		select <include refid="Base_Column_List" />
+		from system_oper_privilege where op_id in 
+		(select op_id from system_role_privilege where role_id = #{id})
+	</select>
+	
+	<!-- 获取所有的操作权限记录的uri信息 -->
+	<select id="selectAllOperPrivilegeUri" resultType="java.lang.String" parameterType="java.util.Map">
+		select oper_privilege_uri from system_oper_privilege where oper_level &lt;= #{statusLevel}
+	</select>
+	
+	<!-- 通过关联表根据菜单权限id获取其具备的操作权限记录 -->
+	<select id="selectByRPid" resultMap="operPrivilegeResultMap" parameterType="java.util.Map">
+		select <include refid="Base_Column_List" />
+		from system_oper_privilege where op_id in 
+		(select op_id from system_role_privilege where privilege_id = #{privilegeId} 
+			<if test="roleid != null"> and role_id=#{roleid}</if>
+		) 
+	</select>
+	
+	<!-- 根据菜单权限id删除属于此菜单权限的所有操作权限记录 -->
+	<delete id="deleteByPrivilegeId" parameterType="java.lang.Integer">
+		delete from system_oper_privilege
+		where privilege_id = #{privilegeId}
+  	</delete>
+</mapper>

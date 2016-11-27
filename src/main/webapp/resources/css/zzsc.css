@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*body{ font-family:"微软雅黑", Arial, sans-serif;} #main{border:none; background:none;}
+body,ul,li,h1,h2,h3,p,form{margin:0;padding:0;}body{background:#fbfbfb;color:#444;font-size:14px;}
+a{color:#444;text-decoration:none;}a:hover{color:red;}*/
+
+/* tagscloud */
+#tagscloud{width:250px;height:260px;position:relative;font-size:12px;color:#333;margin:20px auto 0;text-align:center;
+border: 0px solid red;position:fixed;bottom:0; right:0;_position:absolute;_top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;
+}
+#tagscloud a{position:absolute;top:0px;left:0px;color:#333;font-family:Arial;text-decoration:none;margin:0 10px 15px 0;line-height:18px;text-align:center;font-size:12px;padding:1px 5px;display:inline-block;border-radius:3px;}
+#tagscloud a.tagc1{background:#666;color:#fff;}
+#tagscloud a.tagc2{background:#F16E50;color:#fff;}
+#tagscloud a.tagc3{background:#71C671;color:#fff;}
+#tagscloud a.tagc4{background:#7B68E;color:#fff;}
+#tagscloud a.tagc5{background:#006633;color:#fff;}
+#tagscloud a:hover{color:#fff;background:#0099ff;}
+
+.circle{border: 1px solid #CCC;width: 120px;height: 120px;-webkit-border-radius: 50em;
+		-moz-border-radius: 50em;
+		border-radius: 50em;padding:2px;text-align: center;vertical-align:middle;line-height:120px;
+		position: absolute;right: 0px;top:0px;
+		}
+.course_detail{width: 330px;border: 0px solid #CCC;margin-bottom: 3px;}
+.arrow-down {
+    width:0; 
+    height:0; 
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-top:5px solid #0066cc;
+    margin-left: 45px;
+    position: absolute;
+}
+

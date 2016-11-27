@@ -1,0 +1,194 @@
+/* 用户分组相关的样式 */
+.usergroup
+{
+	display: none;
+	width: 365px;
+	height: 240px;
+	background:url('../img/user_group.png') no-repeat;
+	font-size:14px;
+	line-height:20px;
+	text-align:left;
+	color:black;
+}
+
+.usergroup .gtop
+{
+	height:37px;
+	line-height:37px;
+	padding-left:8px;
+	font-weight:bolder;
+}
+
+.usergroup .gcenter
+{
+	height: 165px;
+	overflow: auto;
+	border: 0px solid red;
+}
+.usergroup .gcenter textarea
+{
+	resize: none;
+}
+
+.usergroup .gcenter div
+{
+	margin-top: 10px;
+	margin-left: 35px;
+}
+
+.usergroup .gbottom
+{
+	position:absolute;
+	height:44px;
+}
+
+.gbottom .add_btn
+{
+	position:absolute;
+	top:0px;
+	left:230px;
+	width:65px;
+	height:26px;
+	background:url('../img/group_before.png') no-repeat;
+	cursor:pointer;
+}
+
+.gbottom .add_btn:hover
+{
+	background:url('../img/group_focus.png') no-repeat;
+	cursor:pointer;
+}
+
+.gbottom .edit_btn
+{
+	position:absolute;
+	top:0px;
+	left:230px;
+	width:65px;
+	height:26px;
+	background:url('../img/group_edit_before.png') no-repeat;
+	cursor:pointer;
+}
+.gbottom .edit_btn:hover
+{
+	background:url('../img/group_edit_focus.png') no-repeat;
+	cursor:pointer;
+}
+
+.gbottom .cancle
+{
+	position:absolute;
+	top:0px;
+	left:303px;
+	width:54px;
+	height:26px;
+	background:url('../img/cancle_before.png') no-repeat;
+	cursor:pointer;
+}
+.gbottom .cancle:hover
+{
+	background:url('../img/cancle_focus.png') no-repeat;
+	cursor:pointer;
+}
+
+.gtop .delete
+{
+	position:absolute;
+	top:12px;
+	left:334px;
+	width:14px;
+	height:14px;
+	background:url('../img/smaldelete_before.png') no-repeat;
+	cursor:pointer;
+}
+.gtop .delete:hover
+{
+	background:url('../img/smaldelete_focus.png') no-repeat;
+}
+
+
+/**确定按钮		 默认*/
+.lt_user_sure {
+	background-image: url('../img/sure_before.png');
+	border-style: none;
+	width: 54px;
+	height: 26px;
+	background-repeat: no-repeat;
+}
+
+/**确定按钮		聚焦*/
+.lt_user_sure2 {
+	background-image: url('../img/sure_focus.png');
+	border-style: none;
+	width: 54px;
+	height: 26px;
+	background-repeat: no-repeat;
+}
+
+/**取消按钮		*/
+.lt_user_cancle{
+	background-image: url("../img/cancle_before.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**取消按钮		聚焦*/
+.lt_user_cancle2{
+	background-image: url("../img/cancle_focus.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**返回按钮	*/
+.lt_sys_back{
+	background-image: url("../img/back.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*返回按钮         聚焦*/
+.lt_sys_back2{
+	background-image: url("../img/back2.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/**提交按钮	*/
+.lt_sys_commit{
+	background-image: url("../img/commit_before.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+/*提交按钮         聚焦*/
+.lt_sys_commit2{
+	background-image: url("../img/commit_focus.png");
+	background-repeat: no-repeat;
+	width: 54px;
+	height: 26px;
+	cursor: hand;
+	margin: 0px;
+	border: 0px;
+}
+
+
